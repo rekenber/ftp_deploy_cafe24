@@ -9,11 +9,11 @@ jobs:
     - uses: actions/checkout@v2.1.0
       with:
         fetch-depth: 2
-    - name: Change wrapper permissions
-      run: chmod +x ./Werewolf/hello.txt
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
         ftp-server: ftp://werewolf6.cafe24.com/
         ftp-username: werewolf6
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+    - name: Change permissions
+      run: chmod +x ./Werewolf/hello.txt
