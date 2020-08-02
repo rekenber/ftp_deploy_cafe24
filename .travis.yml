@@ -1,4 +1,9 @@
 dist: xenial
 os: linux
 language: ruby
-script: phpunit Test.php
+env:
+  global:
+  - 'FTP_USER=user'
+  - 'FTP_PASSWORD=password'
+script: 
+  find Werewolf -type f -exec curl --ftp-create-dirs -T {} ftp://werewolf6.cafe24.com/{} --user $FTP_USER:$FTP_PASSWORD -v \;
