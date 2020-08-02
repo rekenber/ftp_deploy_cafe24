@@ -12,14 +12,14 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ftp://werewolf6.cafe24.com/
-        ftp-username: werewolf6
+        ftp-server:   ${{ secrets.FTP_SERVER }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: werewolf6.cafe24.com
-        username: werewolf6
+        host:     ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         script:  |
           ls www/Werewolf/hello.txt -al
