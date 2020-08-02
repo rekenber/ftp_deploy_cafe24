@@ -9,9 +9,11 @@ jobs:
     - uses: actions/checkout@v2.1.0
       with:
         fetch-depth: 2
-    - name: Change permissions
+    - name : before
       run: ls ./Werewolf -al
+    - name: Change permissions
       run: chmod 555 ./Werewolf/hello.txt        
+    - name : after
       run: ls ./Werewolf -al
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
