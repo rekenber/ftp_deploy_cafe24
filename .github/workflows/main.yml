@@ -18,7 +18,7 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: ftp://werewolf6.cafe24.com/
+        host: werewolf6.cafe24.com/
         username: werewolf6
         password: ${{ secrets.FTP_PASSWORD }}
-        script: ls ./Werewolf -al
+        script: ls www/Werewolf -al
